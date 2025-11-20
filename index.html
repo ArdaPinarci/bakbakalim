@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nededin o ise </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body {
+            font-family: 'Great Vibes', cursive;
+            text-align: center;
+            margin: 0;
+            background-color: #f9f4f5;
+        }
+
+        .container {
+            padding: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 30px;
+            color: #e91e63;
+        }
+
+        img {
+    width: 600px;
+    display: block;
+    margin: 20px auto;
+}
+
+        .buttons {
+            margin: 20px;
+        }
+
+        button {
+    font-size: 18px;
+    padding: 12px 24px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #ff4081;
+    color: #fff;
+    cursor: pointer;
+    transition: transform 0.25s ease, background-color 0.3s ease;
+    
+    /* yazı taşmaması için */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;      /* taşmayı engeller */
+    white-space: nowrap;   /* yazının alt satıra geçmesini engeller */
+}
+
+        button:hover {
+            background-color: #ff5c8d;
+        }
+
+        .popup {
+            display: none;
+            background-color: #fff;
+            border: 1px solid #e91e63;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            font-family: 'Dancing Script', cursive;
+            font-size: 26px;
+            color: #e91e63;
+        }
+        video {
+    display: block;
+    margin: 20px auto;
+}
+
+
+        /* Responsive */
+        @media (max-width: 550px) {
+            button {
+                font-size: 15px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+            img {
+        width: 100%;
+        height: auto;
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+        #no-btn {
+    min-width: 250px;   /* daha geniş görünmesi için */
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Sen ben date(arkadasca)?</h1>
+
+        <div class="buttons">
+            <button id="no-btn" style="width:140px; height:55px;">Hayir(dusmana denmez btw)</button>
+            <button id="yes-btn" style="width:140px; height:55px;">Tabikide (oha)</button>
+        </div>
+
+        <img src="OIP.png" alt="">
+
+        <video autoplay loop playsinline width="600">
+    <source src="videoplayback (1).mp4" type="video/mp4">
+</video>
+
+        <div class="popup" id="popup">
+            <p>isticegini biliyodum :)</p>
+        </div>
+    </div>
+
+    <script>
+const noBtn = document.getElementById("no-btn");
+const yesBtn = document.getElementById("yes-btn");
+const popup = document.getElementById("popup");
+
+let noScale = 1;
+let yesScale = 1;
+
+noBtn.addEventListener("click", () => {
+    // Her tıklamada ölçek değiştir
+    noScale -= 0.1;
+    yesScale += 0.15;
+
+    if (noScale < 0.3) noScale = 0.3; // minimum
+    if (yesScale > 3) yesScale = 3;   // maksimum
+
+    // Scale uygula → yazı ile birlikte büyür/küçülür
+    noBtn.style.transform = `scale(${noScale})`;
+    yesBtn.style.transform = `scale(${yesScale})`;
+
+    // Evet çok büyüyünce popup aç
+    if (yesScale >= 2.5) {
+        popup.style.display = "block";
+    }
+});
+
+yesBtn.addEventListener("click", () => {
+    popup.style.display = "block";
+});
+
+popup.addEventListener("click", () => {
+    popup.style.display = "none";
+});
+</script>
+
+
+
+</body>
+</html>
