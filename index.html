@@ -79,18 +79,30 @@
 
 
         /* Responsive */
-        @media (max-width: 550px) {
-            button {
-                font-size: 15px;
-            }
+@media (max-width: 550px) {
+    button {
+        font-size: 15px;
+    }
 
-            h1 {
-                font-size: 26px;
-            }
-            img {
+    h1 {
+        font-size: 26px;
+    }
+
+    img {
         width: 100%;
         height: auto;
     }
+
+    video {
+        width: 100%;
+        height: auto;
+    }
+
+    #no-btn {
+        min-width: 250px;
+    }
+}
+
     video {
         width: 100%;
         height: auto;
@@ -115,7 +127,8 @@
 
         <h2>Videonun Baslamasi icin tikla</h2>
 
-        <video id="myVideo" playsinline loop style="width:600px; cursor:pointer;">
+        <video id="myVideo" playsinline loop style="max-width:600px; width:100%; cursor:pointer;">
+
     <source src="videoplayback (1).mp4" type="video/mp4">
 </video>
 
@@ -169,6 +182,7 @@ popup.addEventListener("click", () => {
 
 </body>
 </html>
+
 
 
 
