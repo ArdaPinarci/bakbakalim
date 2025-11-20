@@ -113,8 +113,8 @@
 
         <img src="OIP.png" alt="">
 
-        <video autoplay loop playsinline width="600">
-    <source src="videoplayback (1).mp4" type="video/mp4">
+        <video id="v" loop playsinline>
+    <source src="video.mp4" type="video/mp4">
 </video>
 
         <div class="popup" id="popup">
@@ -129,6 +129,12 @@ const popup = document.getElementById("popup");
 
 let noScale = 1;
 let yesScale = 1;
+
+        document.addEventListener("click", () => {
+    const vid = document.getElementById("v");
+    vid.muted = false;
+    vid.play();
+}, { once: true });
 
 noBtn.addEventListener("click", () => {
     // Her tıklamada ölçek değiştir
@@ -161,3 +167,4 @@ popup.addEventListener("click", () => {
 
 </body>
 </html>
+
